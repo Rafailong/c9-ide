@@ -1,7 +1,7 @@
 FROM ubuntu
 
 MAINTAINER Rafael Avila <rafa.avim@gmail.com>
-
+ENV DEBIAN_FRONTEND noninteractive
 EXPOSE 80
 EXPOSE 443
 
@@ -9,7 +9,7 @@ EXPOSE 443
 RUN apt-get update
 RUN apt-get install -y git git-core nginx curl
 RUN curl -sL https://deb.nodesource.com/setup_0.12 | bash -
-RUN apt-get install -y nodejs npm
+RUN apt-get install -y nodejs
 RUN ln -s "$(which nodejs)" /usr/bin/node
 
 # configure nginx ssl
